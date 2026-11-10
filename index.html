@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #25004d, #a00083, #400078);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+h1 {
+    padding-top: 30px;
+    color: pink;
+    text-shadow: 0 0 15px pink;
+    font-size: 38px;
+}
+
+.card {
+    background: linear-gradient(145deg, white, #ffe6fa);
+    color: #79005f;
+    width: 85%;
+    max-width: 400px;
+    min-height: 430px;
+    padding: 30px 20px;
+    margin: 55px auto 25px;
+    border: 5px solid white;
+    border-radius: 18px;
+    box-shadow: 0 0 30px #ff73e0;
+    position: relative;
+    z-index: 2;
+}
+
+.card h2 {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 27px;
+    margin-top: 35px;
+}
+
+.card p {
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.recipient {
+    font-size: 21px;
+    font-weight: bold;
+    color: #c00091;
+}
+
+.signature {
+    margin-top: 35px;
+}
+
+button {
+    background: #ed39b6;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 0 15px pink;
+    position: relative;
+    z-index: 3;
+}
+
+#surprise {
+    display: none;
+    position: relative;
+    z-index: 3;
+    margin: 30px auto;
+    padding: 15px;
+    width: 85%;
+    max-width: 400px;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.balloon {
+    position: fixed;
+    bottom: -100px;
+    width: 40px;
+    height: 55px;
+    border-radius: 50%;
+    animation: float 9s linear infinite;
+    z-index: 1;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    height: 55px;
+    width: 1px;
+    background: white;
+    top: 53px;
+    left: 20px;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-120vh);
+    }
+}
+
+.confetti {
+    position: fixed;
+    top: -10px;
+    width: 9px;
+    height: 12px;
+    animation: fall 4s linear forwards;
+    z-index: 5;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎈 Happy Birthday! 🎉</h1>
+
+<div class="card">
+
+    <h2>My Best Wishes ❤️</h2>
+
+   
+    <p>
+        Wishing you a wonderful birthday
+        filled with happiness, laughter
+        and beautiful memories!
+    </p>
+
+    <p>
+        May all your dreams come true
+        and may the year ahead bring
+        you lots of joy and success.
+    </p>
+
+    <h2>💜</h2>
+
+    <div class="signature">
+        <p>With lots of love ❤️</p>
+        <h2>Laksh</h2>
+    </div>
+
+</div>
+
+<button onclick="openSurprise()">
+    Open Your Surprise 💌
+</button>
+
+<div id="surprise">
+    <h2>🎂 Surprise! 🎂</h2>
+    Hope you have an amazing day!
+    Keep smiling and enjoy your special day! ❤️
+</div>
+
+<script>
+
+const colours = [
+    "#ff36c5",
+    "#a855f7",
+    "#ff70a6",
+    "#8b5cf6",
+    "#e879f9"
+];
+
+// Create floating balloons
+
+for (let i = 0; i < 15; i++) {
+
+    const balloon = document.createElement("div");
+
+    balloon.className = "balloon";
+
+    balloon.style.left = Math.random() * 95 + "%";
+
+    balloon.style.background =
+        colours[Math.floor(Math.random() * colours.length)];
+
+    balloon.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    document.body.appendChild(balloon);
+}
+
+// Birthday surprise
+
+function openSurprise() {
+
+    document.getElementById("surprise").style.display = "block";
+
+    // Falling confetti
+
+    for (let i = 0; i < 100; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left = Math.random() * 100 + "vw";
+
+        piece.style.background =
+            colours[Math.floor(Math.random() * colours.length)];
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 5000);
+    }
+}
+
+</script>
+
+</body>
+</html>
